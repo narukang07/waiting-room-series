@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Time Meeting a Seizure Doctor?</title>
+  <style>
+    :root {
+      --ink: #221b18;
+      --muted: #5f554f;
+      --paper: rgba(255, 249, 239, 0.68);
+      --paper-solid: #fff9ef;
+      --blue: #1f4e79;
+      --line: rgba(34, 27, 24, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #ddd5ca;
+      color: var(--ink);
+      font-family: Avenir, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .sheet {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      padding: 0.46in;
+      position: relative;
+      overflow: hidden;
+      background: #f4eadb;
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("../assets/generated/01-hero-cover_copy.png") center / cover no-repeat;
+      transform: scale(1.03);
+    }
+
+    .sheet::after {
+      content: "";
+      position: absolute;
+      inset: 0.22in;
+      border: 3px solid rgba(34, 27, 24, 0.22);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      min-height: 10.08in;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0.26in;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25in;
+    }
+
+    .logo {
+      width: 2.1in;
+      height: auto;
+      display: block;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 3.05in;
+      gap: 0.32in;
+      align-items: end;
+      align-self: end;
+    }
+
+    .copy-card {
+      align-self: end;
+      padding: 0.22in 0.28in;
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 16px 36px rgba(52, 37, 24, 0.11);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    .kicker {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 0.11in;
+      padding: 0.06in 0.13in;
+      border-radius: 999px;
+      background: rgba(31, 78, 121, 0.1);
+      border: 2px solid rgba(31, 78, 121, 0.22);
+      color: var(--blue);
+      font-size: 12pt;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 11.5ch;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31pt;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      margin: 0.12in 0 0;
+      max-width: 34ch;
+      font-size: 13.4pt;
+      line-height: 1.16;
+      font-weight: 750;
+      color: var(--muted);
+    }
+
+    .inside {
+      margin-top: 0.17in;
+    }
+
+    .inside h2 {
+      margin: 0 0 0.1in;
+      font-size: 17pt;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .inside ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.055in;
+    }
+
+    .inside li {
+      display: grid;
+      grid-template-columns: 0.22in 1fr;
+      gap: 0.1in;
+      align-items: start;
+      font-size: 11.5pt;
+      line-height: 1.16;
+      font-weight: 700;
+    }
+
+    .inside li::before {
+      content: "";
+      width: 0.16in;
+      height: 0.16in;
+      margin-top: 0.03in;
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      background: rgba(31, 78, 121, 0.08);
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,0.7);
+    }
+
+    .curious {
+      margin-top: 0.14in;
+      padding-top: 0.12in;
+      border-top: 2px solid rgba(34, 27, 24, 0.12);
+      font-size: 11.5pt;
+      line-height: 1.2;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .qr-card {
+      align-self: end;
+      padding: 0.22in;
+      border: 4px solid rgba(34, 27, 24, 0.78);
+      border-radius: 18px;
+      background: var(--paper-solid);
+      box-shadow: 0 16px 36px rgba(52, 37, 24, 0.18);
+      display: grid;
+      justify-items: center;
+      gap: 0.12in;
+    }
+
+    .qr-title {
+      margin: 0;
+      font-size: 23pt;
+      line-height: 1;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .qr {
+      width: 2.55in;
+      height: 2.55in;
+      padding: 0.08in;
+      border: 2px solid rgba(34, 27, 24, 0.18);
+      background: white;
+    }
+
+    .qr img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .url {
+      max-width: 2.65in;
+      overflow-wrap: anywhere;
+      text-align: center;
+      font-size: 8.8pt;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    @page {
+      size: Letter;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media screen {
+      .sheet {
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="content">
+      <header class="brand-row">
+        <img class="logo" src="../assets/generated/EmoryHealthcareLogo_Black_RGB.png" alt="Emory Healthcare">
+      </header>
+
+      <section class="main" aria-label="Patient guide flyer">
+        <div class="copy-card">
+          <span class="kicker">Patient Guide</span>
+          <h1>First time meeting a seizure doctor?</h1>
+          <p class="dek">A waiting-room comic for patients, families, and anyone curious about epilepsy care.</p>
+
+          <div class="inside">
+            <h2>Inside</h2>
+            <ul>
+              <li>What check-in and the visit look like</li>
+              <li>How to tell your seizure story</li>
+              <li>Why before / during / after details matter</li>
+              <li>Questions to ask your doctor and family</li>
+            </ul>
+          </div>
+
+          <p class="curious">Curious but not a patient? Feel free to read along.</p>
+        </div>
+
+        <aside class="qr-card" aria-label="QR code">
+          <p class="qr-title">Scan to read →</p>
+          <div class="qr">
+            <img src="../assets/generated/Erafat-qr-code.png" alt="QR code for the first seizure doctor visit comic">
+          </div>
+          <div class="url">https://erafat.github.io/waiting-room-series/first-epilepsy-visit-mobile/?utm_campaign=epilepsy_first_visit_waiting_room&amp;utm_source=qr</div>
+        </aside>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
