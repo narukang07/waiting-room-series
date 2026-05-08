@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your First Seizure Doctor Visit</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f6efdf'/%3E%3Cpath d='M20 21c-5 0-9 4-9 10 0 7 5 12 12 12h4v-6h-3c-3 0-6-2-6-6 0-3 2-5 5-5 2 0 4 1 5 3 1-2 3-3 5-3 3 0 5 2 5 5 0 4-3 6-6 6h-3v6h4c7 0 12-5 12-12 0-6-4-10-9-10-3 0-6 1-8 4-2-3-5-4-8-4Z' fill='%23567c78'/%3E%3Cpath d='m32 17-5 9h5l-3 9 8-11h-5l3-7Z' fill='%237d4956'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+  <script>
+    window.WAITING_ROOM_ANALYTICS = {
+      provider: "goatcounter",
+      siteCode: "waitingroom",
+      defaultCampaign: "epilepsy_first_visit_waiting_room",
+      taggedOnly: true
+    };
+  </script>
+  <style>
+    :root {
+      --paper: #f6efdf;
+      --paper-deep: #e8d8b8;
+      --ink: #221b18;
+      --muted: #645950;
+      --olive: #71894a;
+      --burgundy: #7d4956;
+      --teal: #567c78;
+      --gold: #d5ac5d;
+      --line: rgba(34, 27, 24, 0.12);
+      --shadow: 0 12px 32px rgba(50, 34, 21, 0.16);
+      --radius: 20px;
+      --strip: 520px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: #1a1410;
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Atkinson Hyperlegible Next", sans-serif;
+      line-height: 1.45;
+      min-height: 100svh;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      padding: 11px 16px;
+      background: rgba(26, 20, 16, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .topbar__inner {
+      width: min(100%, var(--strip));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .topbar__title {
+      font-family: "Fraunces", serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: rgba(246, 239, 223, 0.9);
+      letter-spacing: -0.01em;
+    }
+
+    .topbar__counter {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(246, 239, 223, 0.45);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Strip (webtoon column) ── */
+    .strip {
+      width: min(100%, var(--strip));
+      margin: 0 auto;
+      display: grid;
+      gap: 0;
+      background: var(--paper);
+    }
+
+    /* ── Beat (story unit) ── */
+    .beat {
+      display: grid;
+      gap: 0;
+    }
+
+    /* ── Panel (the comic image) ── */
+    .panel {
+      width: 100%;
+      overflow: hidden;
+      background: var(--paper-deep);
+      position: relative;
+    }
+
+    .panel img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
+    }
+
+    .panel--tall {
+      aspect-ratio: 3/4;
+    }
+
+    .panel--hero {
+      aspect-ratio: 4/5;
+      min-height: 82svh;
+    }
+
+    .panel--short {
+      aspect-ratio: 4/3;
+    }
+
+    .panel--square {
+      aspect-ratio: 1/1;
+    }
+
+    /* ── Hero overlay ── */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(
+        180deg,
+        rgba(22,17,14,0) 40%,
+        rgba(22,17,14,0.72) 80%,
+        rgba(22,17,14,0.88) 100%
+      );
+      padding: clamp(24px, 6vw, 40px);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,251,244,0.15);
+      border: 1px solid rgba(255,251,244,0.22);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,251,244,0.85);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.4rem, 10vw, 3.6rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: rgba(255, 251, 244, 0.97);
+      max-width: 10ch;
+    }
+
+    .hero-sub {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(246,239,223,0.7);
+    }
+
+    /* ── Dialogue area ── */
+    .dialogue {
+      padding: 16px 18px 22px;
+      display: grid;
+      gap: 12px;
+      background: var(--paper);
+    }
+
+    .dialogue--tight {
+      padding: 12px 18px 18px;
+      gap: 10px;
+    }
+
+    /* ── Chapter label ── */
+    .chapter {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(34,27,24,0.08);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Narration box ── */
+    .narration {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(33,27,24,0.82);
+      color: rgba(255,251,244,0.95);
+      border-radius: 5px;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    /* ── Speech bubbles ── */
+    .bubble {
+      position: relative;
+      background: #fff;
+      border: 2.5px solid var(--ink);
+      border-radius: 20px;
+      padding: 11px 15px;
+      font-size: 0.97rem;
+      line-height: 1.42;
+      color: var(--ink);
+      max-width: 92%;
+    }
+
+    /* tail pointing UP (bubble sits below image) */
+    .bubble--up::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 20px;
+      border: 9px solid transparent;
+      border-bottom-color: var(--ink);
+    }
+    .bubble--up::after {
+      content: "";
+      position: absolute;
+      top: -11.5px;
+      left: 21.5px;
+      border: 7.5px solid transparent;
+      border-bottom-color: #fff;
+    }
+
+    /* tail on the right side */
+    .bubble--up-right {
+      align-self: flex-end;
+    }
+    .bubble--up-right::before {
+      left: auto;
+      right: 20px;
+    }
+    .bubble--up-right::after {
+      left: auto;
+      right: 21.5px;
+    }
+
+    /* thought bubble */
+    .bubble--thought {
+      border-style: dashed;
+      border-color: rgba(34,27,24,0.35);
+      color: var(--muted);
+      font-style: italic;
+      background: rgba(255,255,255,0.7);
+    }
+    .bubble--thought::before,
+    .bubble--thought::after { display: none; }
+    .bubble--thought .thought-dots {
+      position: absolute;
+      top: -20px;
+      left: 16px;
+      display: flex;
+      gap: 4px;
+    }
+    .bubble--thought .thought-dots span {
+      display: block;
+      border-radius: 50%;
+      background: rgba(34,27,24,0.35);
+      border: 1.5px solid rgba(34,27,24,0.3);
+    }
+    .bubble--thought .thought-dots span:nth-child(1) { width: 6px; height: 6px; }
+    .bubble--thought .thought-dots span:nth-child(2) { width: 8px; height: 8px; }
+    .bubble--thought .thought-dots span:nth-child(3) { width: 10px; height: 10px; }
+
+    /* speaker label */
+    .bubble__who {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    /* ── Info card (no image) ── */
+    .info-card {
+      background: var(--paper);
+      padding: 22px 20px 26px;
+      display: grid;
+      gap: 16px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-card--support {
+      margin: 0 14px 18px;
+      border: 2px solid rgba(34, 27, 24, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 250, 241, 0.9);
+      box-shadow: 0 8px 18px rgba(50, 34, 21, 0.08);
+    }
+
+    .support-section {
+      background: var(--paper);
+      padding: 18px 0 6px;
+      gap: 0;
+    }
+
+    .info-card__title {
+      font-family: "Fraunces", serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Checklist (what to bring) ── */
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .checklist__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255,252,247,0.9);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .checklist__icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ── Question list ── */
+    .q-list {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .q-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 15px;
+      background: rgba(255,252,247,0.9);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.97rem;
+      font-weight: 700;
+    }
+
+    .q-list li::before {
+      content: "?";
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(125,73,86,0.12);
+      color: var(--burgundy);
+      font-weight: 900;
+      font-size: 0.88rem;
+    }
+
+    /* ── Dual-panel (EEG / MRI) ── */
+    .dual-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      padding: 6px;
+      background: #1a1410;
+    }
+
+    .dual-panel__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      background: var(--paper-deep);
+    }
+
+    .dual-panel__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 20%;
+    }
+
+    .dual-panel__label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: rgba(255,251,244,0.9);
+      border: 1px solid var(--line);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    /* ── Tip strip ── */
+    .tip {
+      padding: 12px 18px;
+      background: linear-gradient(135deg, rgba(113,137,74,0.12), rgba(86,124,120,0.1));
+      border-left: 3px solid var(--olive);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2e3731;
+      line-height: 1.4;
+    }
+
+    /* ── Before/During/After labels ── */
+    .bda-labels {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 18px 4px;
+      background: var(--paper);
+    }
+
+    .bda-label {
+      flex: 1;
+      text-align: center;
+      padding: 8px 6px;
+      border-radius: 10px;
+      border: 1.5px solid var(--line);
+      background: rgba(255,252,247,0.9);
+    }
+
+    .bda-label__num {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+
+    .bda-label__text {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 10px;
+      background:
+        linear-gradient(90deg, rgba(34,27,24,0.85), rgba(34,27,24,0.66)),
+        #1a1410;
+    }
+
+    /* ── Closing card ── */
+    .closing {
+      padding: 36px 24px 48px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(213,172,93,0.22), transparent 32%),
+        radial-gradient(circle at 85% 88%, rgba(86,124,120,0.18), transparent 28%),
+        var(--paper);
+      display: grid;
+      gap: 14px;
+    }
+
+    .closing__eyebrow {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .closing__title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+
+    .closing__body {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 36ch;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .closing__badge {
+      display: inline-flex;
+      align-self: center;
+      justify-self: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .closing__clinic {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(100, 89, 80, 0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ── Screen-number overlay on panels ── */
+    .panel-num {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(26,20,16,0.55);
+      color: rgba(246,239,223,0.7);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── Not-alone badge ── */
+    .badge {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .badge--teal {
+      background: rgba(86,124,120,0.14);
+      color: var(--teal);
+      border: 1px solid rgba(86,124,120,0.25);
+    }
+
+    .badge--warm {
+      background: rgba(125,73,86,0.1);
+      color: var(--burgundy);
+      border: 1px solid rgba(125,73,86,0.2);
+    }
+
+    /* ── Mobile comic section test ── */
+    .comic-section {
+      background: var(--paper);
+      padding: 16px 12px 22px;
+      gap: 10px;
+    }
+
+    .section-heading {
+      padding: 12px 10px 8px;
+    }
+
+    .section-heading span {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .section-heading h2 {
+      font-family: "Fraunces", serif;
+      font-size: 1.72rem;
+      line-height: 1;
+    }
+
+    .section-sub {
+      margin-top: 10px;
+      max-width: 42ch;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .text-panel {
+      padding: 22px 20px;
+      display: grid;
+      gap: 14px;
+      min-height: 320px;
+      align-content: center;
+    }
+
+    .text-panel__eyebrow {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .text-panel__title {
+      font-family: "Fraunces", serif;
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .text-panel__body {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .text-panel__list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .text-panel__list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      font-size: 0.98rem;
+      line-height: 1.3;
+      font-weight: 750;
+    }
+
+    .text-panel__list li::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 2px solid var(--teal);
+      background: rgba(86,124,120,0.1);
+    }
+
+    .comic-panel {
+      overflow: hidden;
+      border: 2px solid rgba(34, 27, 24, 0.34);
+      border-radius: 4px;
+      background: #fffaf1;
+      box-shadow: 0 7px 15px rgba(50, 34, 21, 0.08);
+    }
+
+    .comic-panel img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .panel--comic-wide {
+      aspect-ratio: 888 / 546;
+    }
+
+    .panel--comic-close {
+      aspect-ratio: 888 / 530;
+    }
+
+    .panel--comic-square {
+      aspect-ratio: 1 / 1;
+    }
+
+    .panel--comic-landscape {
+      aspect-ratio: 6 / 5;
+    }
+
+    .comic-panel--natural img {
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar__inner">
+      <span class="topbar__title">First Seizure Doctor Visit</span>
+      <span class="topbar__counter"><span id="counter">01</span> / 10</span>
+    </div>
+  </nav>
+
+  <div class="strip">
+
+    <!-- ══ 01 COVER ══ -->
+    <article class="beat" data-screen="1">
+      <div class="panel panel--hero">
+        <img src="../assets/generated/01-hero-cover.png"
+             alt="Marcus and his family arrive at the neurology clinic, greeted by Dr. Rehim">
+        <div class="hero-overlay">
+          <span class="hero-kicker">Patient Guide · Emory Epilepsy</span>
+          <h1 class="hero-title">Your First Seizure Doctor Visit</h1>
+          <p class="hero-sub">By Bona Kim, MA, CMI &amp; Erafat D. Rehim, MD</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 01 THE DAY ARRIVES ══ -->
+    <article class="beat comic-section" data-screen="2">
+      <div class="section-heading">
+        <span>01 / The Day Arrives</span>
+        <h2>The day arrives</h2>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_02-01-arrival.png"
+             alt="Marcus and his parents arrive at the neurology clinic on the morning of the visit">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_02-02-marcus-worry.png"
+             alt="Marcus worries about what an epileptologist does and what will happen during the appointment">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_02-03-family-support.png"
+             alt="Marcus's parents reassure him that they are right there with him">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_02-04-walk-through.png"
+             alt="Marcus opens the door into the waiting room as the story explains that the appointment is designed to help">
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 02 CHECKING IN ══ -->
+    <article class="beat comic-section" data-screen="3">
+      <div class="section-heading">
+        <span>02 / Checking In</span>
+        <h2>Checking in</h2>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_03-01-checking-in.png"
+             alt="Marcus checks in at the front desk and receives medical history forms">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_03-02-timeline-tip.png"
+             alt="Marcus and his family talk through when the first episode happened while filling out forms">
+      </div>
+
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 03 WHILE YOU WAIT ══ -->
+    <article class="beat comic-section" data-screen="4">
+      <div class="section-heading">
+        <span>03 / While You Wait</span>
+        <h2>While you wait</h2>
+      </div>
+
+      <div class="comic-panel text-panel">
+        <span class="text-panel__eyebrow">Gather your details</span>
+        <h3 class="text-panel__title">This is a good moment to gather the details you want to share.</h3>
+        <ul class="text-panel__list">
+          <li>what happened before, during, and after the event</li>
+          <li>medicines you take now</li>
+          <li>questions you want answered</li>
+          <li>a family member or friend who saw what happened</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 04 MEET DR. REHIM ══ -->
+    <article class="beat comic-section" data-screen="5">
+      <div class="section-heading">
+        <span>04 / Meet The Doctor</span>
+        <h2>Meet your seizure doctor</h2>
+        <p class="section-sub">An epileptologist is a neurologist who specializes in seizures. The visit is a conversation, not a test you can fail.</p>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/04a-doctor-door.png"
+             alt="Dr. Rehim welcomes Marcus and his parents into the consultation room">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/04b-marcus-reaction.png"
+             alt="Marcus feels relieved that Dr. Rehim seems approachable">
+      </div>
+
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 05 TELL YOUR STORY ══ -->
+    <article class="beat comic-section" data-screen="6">
+      <div class="section-heading">
+        <span>05 / Your Story</span>
+        <h2>Your story matters</h2>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/05a-story-question.png"
+             alt="Dr. Rehim asks Marcus to describe what happened on the day of the seizure">
+      </div>
+
+      <div class="comic-panel comic-panel--natural">
+        <img src="../assets/generated/06a-before.png"
+             alt="Before the seizure, Marcus notices a strange metallic taste">
+      </div>
+
+      <div class="comic-panel comic-panel--natural">
+        <img src="../assets/generated/06b-during.png"
+             alt="During the seizure, Marcus loses awareness while his parents see him stiffen and shake">
+      </div>
+
+      <div class="comic-panel comic-panel--natural">
+        <img src="../assets/generated/06c-after.png"
+             alt="After the seizure, Marcus is confused while his parents help him recover">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/05b-details-matter.png"
+             alt="Dr. Rehim reassures Marcus that his seizure description gave helpful details">
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 06 THE FULL STORY ══ -->
+    <article class="beat comic-section" data-screen="7">
+      <div class="section-heading">
+        <span>06 / The Full Story</span>
+        <h2>The full story helps</h2>
+        <p class="section-sub">Your doctor is piecing together more than one moment. The event itself, the history around it, and your daily life and support system can all help explain what happened.</p>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_06-01-full-story.png"
+             alt="Dr. Rehim explains that the seizure has its own script and the full story helps find the right answer">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_06-03-04-backstory-stage.png"
+             alt="Two checklist cards showing backstory and daily life stage details that can affect seizure care">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_06-05-script-matters.png"
+             alt="Dr. Rehim explains that every line of the seizure script matters while Marcus realizes the seizure connects to broader details">
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 07 UNDERSTANDING EPILEPSY ══ -->
+    <article class="beat comic-section" data-screen="8">
+      <div class="section-heading">
+        <span>07 / Understanding Epilepsy</span>
+        <h2>One seizure does not automatically mean epilepsy</h2>
+        <p class="section-sub">A seizure is a sudden burst of electrical activity in the brain. Having one seizure does not automatically mean epilepsy. This visit is about understanding what happened and what still needs to be checked next.</p>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_07-01-understanding-epilepsy.png"
+             alt="Dr. Rehim explains epilepsy using a whiteboard with a brain and normal versus seizure electrical activity">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_07-02-eeg-mri-tests.png"
+             alt="Dr. Rehim explains EEG and MRI tests with simple drawings on a tablet">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_07-03-medication-question.png"
+             alt="Marcus asks whether he will need medication and whether it will have side effects">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_07-04-treatment-plan.png"
+             alt="A treatment plan on a table shows medication options, follow-up, questions, and reassurance">
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 10 YOUR QUESTIONS ══ -->
+    <article class="beat support-section" data-screen="9">
+      <div class="info-card info-card--support">
+        <span class="chapter">Bring Your Questions</span>
+        <h2 class="info-card__title">Don't be afraid to ask.</h2>
+        <ul class="q-list">
+          <li>Can I drive?</li>
+          <li>What should I do if this happens again?</li>
+          <li>Do I need testing right away?</li>
+          <li>When should I call the clinic?</li>
+          <li>What should my family watch for?</li>
+        </ul>
+        <span class="narration">Write your questions down before the visit so you don't forget.</span>
+      </div>
+    </article>
+
+    <div class="divider"></div>
+
+    <!-- ══ 08 BEFORE YOU LEAVE ══ -->
+    <article class="beat comic-section" data-screen="10">
+      <div class="section-heading">
+        <span>08 / A Before You Leave</span>
+        <h2>A team, a plan, a path forward</h2>
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_08-01-care-plan.png"
+             alt="Dr. Rehim gives Marcus his epilepsy care plan with next steps before leaving the visit">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_08-02-team-handshake.png"
+             alt="Marcus's father shakes hands with Dr. Rehim as the family feels reassured">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_08-03-leaving-clinic.png"
+             alt="Marcus and his parents leave the clinic feeling calmer with answers and a plan">
+      </div>
+
+      <div class="comic-panel panel--comic-landscape">
+        <img src="../assets/generated/page_08-04-journey-starts.png"
+             alt="Marcus, his family, and Dr. Rehim stand together with a closing message about not walking the epilepsy journey alone">
+      </div>
+    </article>
+
+  </div><!-- /strip -->
+
+  <script>
+    const analyticsConfig = window.WAITING_ROOM_ANALYTICS || {};
+    const searchParams = new URLSearchParams(window.location.search);
+
+    function normalizeDeliverySource(rawValue) {
+      if (!rawValue) return "";
+      const value = rawValue.trim().toLowerCase();
+      if (value === "qr" || value === "qrcode") return "qr";
+      if (value === "nfc" || value === "tap") return "nfc";
+      return value.replace(/[^a-z0-9_-]+/g, "-");
+    }
+
+    function loadGoatCounter() {
+      if (analyticsConfig.provider !== "goatcounter" || !analyticsConfig.siteCode) return;
+      if (document.querySelector("script[data-goatcounter]")) return;
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://gc.zgo.at/count.js";
+      script.dataset.goatcounter = `https://${analyticsConfig.siteCode}.goatcounter.com/count`;
+      document.head.appendChild(script);
+    }
+
+    function whenGoatCounterReady(callback) {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        callback(); return;
+      }
+      let attempts = 0;
+      const poller = window.setInterval(() => {
+        attempts += 1;
+        if (window.goatcounter && typeof window.goatcounter.count === "function") {
+          window.clearInterval(poller); callback(); return;
+        }
+        if (attempts >= 20) window.clearInterval(poller);
+      }, 250);
+    }
+
+    function trackDeliverySourceEvent(source) {
+      if (!source) return;
+      if (analyticsConfig.provider !== "goatcounter" || !analyticsConfig.siteCode) return;
+      whenGoatCounterReady(() => {
+        window.goatcounter.count({ path: `entry-${source}`, title: `Entry via ${source.toUpperCase()}`, event: true });
+      });
+    }
+
+    function trackTaggedVisit(source) {
+      if (!source) return;
+      if (analyticsConfig.provider !== "goatcounter" || !analyticsConfig.siteCode) return;
+      whenGoatCounterReady(() => {
+        window.goatcounter.count({ path: window.location.pathname + window.location.search, title: document.title, referrer: source.toUpperCase() });
+      });
+    }
+
+    function getDwellBucket(seconds) {
+      if (seconds < 15) return "dwell-0-15s";
+      if (seconds < 60) return "dwell-15-60s";
+      if (seconds < 180) return "dwell-60-180s";
+      return "dwell-180s-plus";
+    }
+
+    function trackDwellTime(source, seconds) {
+      if (!source) return;
+      if (analyticsConfig.provider !== "goatcounter" || !analyticsConfig.siteCode) return;
+      const dwellBucket = getDwellBucket(seconds);
+      whenGoatCounterReady(() => {
+        window.goatcounter.count({ path: `${dwellBucket}-${source}`, title: `Visible time ${dwellBucket.replace("dwell-", "")} via ${source.toUpperCase()}`, event: true, referrer: source.toUpperCase() });
+      });
+    }
+
+    const deliverySource = normalizeDeliverySource(
+      searchParams.get("utm_source") || searchParams.get("source") ||
+      searchParams.get("via") || searchParams.get("channel")
+    );
+
+    let normalizedTracking = false;
+    if (deliverySource && !searchParams.get("utm_source")) {
+      searchParams.set("utm_source", deliverySource); normalizedTracking = true;
+    }
+    if (deliverySource && !searchParams.get("utm_campaign") && analyticsConfig.defaultCampaign) {
+      searchParams.set("utm_campaign", analyticsConfig.defaultCampaign); normalizedTracking = true;
+    }
+    if (normalizedTracking) {
+      const nextUrl = new URL(window.location.href);
+      nextUrl.search = searchParams.toString();
+      window.history.replaceState({}, "", nextUrl);
+    }
+
+    if (analyticsConfig.taggedOnly) {
+      window.goatcounter = Object.assign({}, window.goatcounter, { no_onload: true });
+    }
+    loadGoatCounter();
+    if (deliverySource) { trackTaggedVisit(deliverySource); trackDeliverySourceEvent(deliverySource); }
+
+    let visibleStartedAt = document.hidden ? 0 : Date.now();
+    let accumulatedVisibleMs = 0;
+    let dwellTracked = false;
+
+    function pauseVisibleTimer() {
+      if (!visibleStartedAt) return;
+      accumulatedVisibleMs += Date.now() - visibleStartedAt;
+      visibleStartedAt = 0;
+    }
+    function resumeVisibleTimer() {
+      if (!deliverySource || document.hidden || visibleStartedAt) return;
+      visibleStartedAt = Date.now();
+    }
+    function flushDwellTime() {
+      if (!deliverySource || dwellTracked) return;
+      pauseVisibleTimer();
+      trackDwellTime(deliverySource, Math.max(0, Math.round(accumulatedVisibleMs / 1000)));
+      dwellTracked = true;
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      document.hidden ? pauseVisibleTimer() : resumeVisibleTimer();
+    });
+    window.addEventListener("pagehide", flushDwellTime);
+    window.addEventListener("beforeunload", flushDwellTime);
+
+    const sections = [...document.querySelectorAll("[data-screen]")];
+    const counter = document.getElementById("counter");
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      counter.textContent = String(visible.target.dataset.screen).padStart(2, "0");
+    }, { threshold: [0.3, 0.55, 0.8] });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
