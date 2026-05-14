@@ -5,6 +5,11 @@ Primary request: Rebuild PDF `page_02` / "The Day Arrives" for mobile as `page_0
 Overall style:
 Simple patient-education comic style matching `epilepsy-first-visit.pdf`: warm beige paper, clear black hand-drawn outlines, flat restrained watercolor fills, minimal shading, low detail, readable comic text, expressive but simple faces, calm reassuring tone.
 
+Character lock:
+Marcus is a Black young adult in his 20s, not a child or teenager. Keep his short fade, olive green hoodie, dark jeans, and calm but nervous expression.
+Mrs. Johnson is a Black woman with shoulder-length natural curls, burgundy cardigan, and cream blouse.
+Mr. Johnson is a Black man with gray hair, gray polo, and khaki pants.
+
 Character eye style:
 Use only simple, slightly vertical black dots or short vertical ovals.
 Do not draw whites of the eyes, eye outlines, eyelid lines, irises, pupils inside whites, shiny highlights, glossy pupils, realistic eyes, or almond eye shapes.
@@ -23,14 +28,14 @@ Suggested filename: page_02-01-arrival.png
 Panel page_02-2 - Marcus Worries
 Aspect ratio: 6:5.
 Scene: close-up of Marcus looking worried near the clinic entrance or waiting room, one hand near his face. He wears an olive green hoodie. Keep the background simple.
-Thought bubble:
-"I don't even know what an epileptologist does... What are they going to do to me?"
+Speech bubble from Marcus:
+"I don't even know what a seizure doctor does..."
 Suggested filename: page_02-02-marcus-worry.png
 
 Panel page_02-3 - Family Support
 Aspect ratio: 6:5.
 Scene: Marcus stands between his mother and father. His mother places a supportive hand on his shoulder. His father stands calmly nearby. Marcus looks nervous but comforted.
-Mother speech:
+Background text, placed directly on the warm background without a speech tail or balloon pointer:
 "We're right here with you, honey."
 Suggested filename: page_02-03-family-support.png
 
@@ -45,3 +50,4 @@ Important layout instructions:
 Do not include page number labels or panel ID labels inside the images.
 Keep text large and readable on a phone.
 Use 6:5 proportions for each output image.
+Panel page_02-3 must not use a speech bubble tail. Put the text directly on the background or inside a simple tail-less caption shape.

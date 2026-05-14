@@ -9,11 +9,15 @@ Character eye style:
 Use only simple, slightly vertical black dots or short vertical ovals.
 Do not draw whites of the eyes, eye outlines, eyelid lines, irises, pupils inside whites, shiny highlights, glossy pupils, realistic eyes, or almond eye shapes.
 
+Character lock:
+Marcus is a Black young adult in his 20s, not a child or teenager. Keep his short fade, olive green hoodie, dark jeans, and readable young-adult proportions.
+The receptionist / front-desk clinic staff member is a Black woman in her 50s or 60s, friendly and professional, with simple dot eyes and warm body language.
+
 Create three separate images:
 
 Panel page_03-1 - Checking In
 Aspect ratio: 6:5.
-Scene: warm neurology clinic front desk. Marcus stands at reception while his parents sit nearby. A friendly clinic staff member hands Marcus a clipboard/forms. Combine the original front-desk and forms panels into one clean composition.
+Scene: warm neurology clinic front desk. Marcus stands at reception while his parents sit nearby. A friendly Black female receptionist in her 50s or 60s hands Marcus a clipboard/forms. Combine the original front-desk and forms panels into one clean composition.
 Heading:
 "Checking In"
 Caption:

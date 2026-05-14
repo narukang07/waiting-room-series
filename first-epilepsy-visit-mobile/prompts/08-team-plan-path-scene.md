@@ -10,6 +10,10 @@ Use only simple, slightly vertical black dots or short vertical ovals.
 Do not draw whites of the eyes, eye outlines, eyelid lines, irises, pupils inside whites, shiny highlights, glossy pupils, realistic eyes, or almond eye shapes.
 For Dr. Rehim, draw the glasses frame only; the eyes inside the glasses must remain plain vertical black dots.
 
+Character lock:
+Marcus is a Black young adult in his 20s wearing an olive green hoodie, not a child or teenager.
+Dr. Rehim must stay consistent in all four panels, especially the final group portrait: light olive skin, dark side-swept hair with soft volume, clear translucent rectangular-round glasses, strong brows, smooth simplified face, clean-shaven or only faint stubble, gray or brown blazer over a dark shirt, no white coat, no badge text.
+
 Create four separate images:
 
 Panel page_08-1 - Care Plan
@@ -41,7 +45,7 @@ Suggested filename: page_08-03-leaving-clinic.png
 
 Panel page_08-4 - Journey Starts
 Aspect ratio: 6:5.
-Scene: final reassuring group portrait. Marcus, his mother, his father, and Dr. Rehim stand together in a calm clinic/warm neutral background. Waist-up or chest-up, friendly simple expressions.
+Scene: final reassuring group portrait. Marcus, his mother, his father, and Dr. Rehim stand together in a calm clinic/warm neutral background. Waist-up or chest-up, friendly simple expressions. Dr. Rehim must match the same physician design from the earlier visit panels and must not become a different-looking generic doctor.
 Headline:
 "Your epilepsy journey starts here — and you don't walk it alone."
 Subline:

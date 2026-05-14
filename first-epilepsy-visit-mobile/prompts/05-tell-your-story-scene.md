@@ -24,7 +24,7 @@ Do not shrink the final caption text too much.
 
 Character lock:
 Dr. Rehim has light olive skin, dark side-swept hair, clear rectangular-round glasses, calm smile, gray or brown blazer over a dark shirt, no white coat.
-Marcus is a young Black teen wearing an olive green hoodie.
+Marcus is a Black young adult in his 20s wearing an olive green hoodie, not a child or teenager.
 Marcus's parents are supportive and concerned.
 
 Create two separate comic panels:

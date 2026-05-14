@@ -49,7 +49,7 @@ The best-fit reference direction is the `images-2-indie-comic` branch from the l
 
 ## Character Lock
 
-- Marcus: early-20s Black man, short fade, olive green hoodie, dark jeans, white sneakers
+- Marcus: early-20s Black man, clean-shaven with no mustache and no beard, short fade, olive green hoodie, dark jeans, white sneakers
 - Mrs. Johnson: Black woman, shoulder-length natural curls, burgundy cardigan, cream blouse
 - Mr. Johnson: Black man, gray polo, khaki pants, broadest silhouette
 - Dr. Rehim: match the active simplified physician character sheet in `../assets/characters/dr-rehim-character-sheet-simplified-v2.png`; light olive skin, dark brown to black side-swept hair with soft volume, clear translucent rectangular-round glasses, strong dark eyebrows, oval face, softly defined jaw, smooth simplified face, clean-shaven or only the faintest stubble, calm listening smile; wardrobe is a brown or gray blazer over a dark knit or shirt with tailored dark trousers; no white coat
@@ -61,6 +61,8 @@ The best-fit reference direction is the `images-2-indie-comic` branch from the l
 - Do not draw whites of the eyes, eye outlines, eyelid lines, irises, pupils inside whites, highlights, glossy pupils, realistic eyes, or almond eye shapes.
 - For Dr. Rehim, eyes behind glasses should still read as small vertical black dots, not detailed eyes. Draw the glasses frame only; do not let the glasses create whites, eye outlines, eyelid lines, or almond-shaped eyes.
 - Keep faces simple, flat, and cartoon-like with restrained expressions.
+- Marcus must stay clean-shaven in every panel. Do not draw a mustache, beard, goatee, stubble, or facial hair shadow on Marcus.
+- Keep Marcus at a consistent young-adult age across all panels: clearly in his 20s, not a teenager and not middle-aged.
 
 ## House Prefix
 
