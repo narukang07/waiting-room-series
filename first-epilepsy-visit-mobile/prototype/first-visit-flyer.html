@@ -58,15 +58,14 @@
       z-index: 1;
       min-height: 10.08in;
       display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 0.26in;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.22in;
     }
 
     .brand-row {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
       align-items: center;
-      gap: 0.25in;
     }
 
     .logo {
@@ -75,25 +74,11 @@
       display: block;
     }
 
-    .main {
-      display: grid;
-      grid-template-columns: 1fr 3.05in;
-      gap: 0.32in;
-      align-items: end;
-      align-self: end;
-    }
-
-    .copy-card {
-      align-self: end;
-      padding: 0.22in 0.28in;
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: 0 16px 36px rgba(52, 37, 24, 0.11);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 0;
-      backdrop-filter: blur(2px);
+    .hero-copy {
+      align-self: start;
+      justify-self: start;
+      width: 4.95in;
+      padding-top: 0.05in;
     }
 
     .kicker {
@@ -109,6 +94,7 @@
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      backdrop-filter: blur(2px);
     }
 
     h1 {
@@ -129,13 +115,20 @@
       color: var(--muted);
     }
 
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 2.75in;
+      gap: 0.18in;
+      align-items: end;
+    }
+
     .inside {
-      margin-top: 0.17in;
+      margin-top: 0;
     }
 
     .inside h2 {
-      margin: 0 0 0.1in;
-      font-size: 17pt;
+      margin: 0 0 0.07in;
+      font-size: 15pt;
       line-height: 1;
       font-weight: 900;
     }
@@ -145,7 +138,7 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 0.055in;
+      gap: 0.045in;
     }
 
     .inside li {
@@ -153,7 +146,7 @@
       grid-template-columns: 0.22in 1fr;
       gap: 0.1in;
       align-items: start;
-      font-size: 11.5pt;
+      font-size: 10.2pt;
       line-height: 1.16;
       font-weight: 700;
     }
@@ -170,10 +163,10 @@
     }
 
     .curious {
-      margin-top: 0.14in;
-      padding-top: 0.12in;
+      margin-top: 0.1in;
+      padding-top: 0.09in;
       border-top: 2px solid rgba(34, 27, 24, 0.12);
-      font-size: 11.5pt;
+      font-size: 10.4pt;
       line-height: 1.2;
       color: var(--muted);
       font-weight: 750;
@@ -181,27 +174,27 @@
 
     .qr-card {
       align-self: end;
-      padding: 0.22in;
+      padding: 0.16in;
       border: 4px solid rgba(34, 27, 24, 0.78);
       border-radius: 18px;
-      background: var(--paper-solid);
+      background: rgba(255, 249, 239, 0.9);
       box-shadow: 0 16px 36px rgba(52, 37, 24, 0.18);
       display: grid;
       justify-items: center;
-      gap: 0.12in;
+      gap: 0.1in;
     }
 
     .qr-title {
       margin: 0;
-      font-size: 23pt;
+      font-size: 20pt;
       line-height: 1;
       font-weight: 950;
       text-align: center;
     }
 
     .qr {
-      width: 2.55in;
-      height: 2.55in;
+      width: 2.2in;
+      height: 2.2in;
       padding: 0.08in;
       border: 2px solid rgba(34, 27, 24, 0.18);
       background: white;
@@ -216,10 +209,10 @@
     }
 
     .url {
-      max-width: 2.65in;
+      max-width: 2.35in;
       overflow-wrap: anywhere;
       text-align: center;
-      font-size: 8.8pt;
+      font-size: 7.6pt;
       line-height: 1.2;
       color: var(--muted);
     }
@@ -254,12 +247,15 @@
         <img class="logo" src="../assets/generated/EmoryHealthcareLogo_Black_RGB.png" alt="Emory Healthcare">
       </header>
 
-      <section class="main" aria-label="Patient guide flyer">
-        <div class="copy-card">
-          <span class="kicker">Patient Guide</span>
-          <h1>First time meeting a seizure doctor?</h1>
-          <p class="dek">A waiting-room comic for patients, families, and anyone curious about epilepsy care.</p>
+      <section class="hero-copy" aria-label="Patient guide flyer">
+        <span class="kicker">Patient Guide</span>
+        <h1>First time meeting a seizure doctor?</h1>
+        <p class="dek">A waiting-room comic for patients, families, and anyone curious about epilepsy care.</p>
+      </section>
 
+      <section class="bottom-row" aria-label="Comic details and QR code">
+        <div></div>
+        <aside class="qr-card" aria-label="QR code">
           <div class="inside">
             <h2>Inside</h2>
             <ul>
@@ -271,9 +267,6 @@
           </div>
 
           <p class="curious">Curious but not a patient? Feel free to read along.</p>
-        </div>
-
-        <aside class="qr-card" aria-label="QR code">
           <p class="qr-title">Scan to read →</p>
           <div class="qr">
             <img src="../assets/generated/Erafat-qr-code.png" alt="QR code for the first seizure doctor visit comic">
