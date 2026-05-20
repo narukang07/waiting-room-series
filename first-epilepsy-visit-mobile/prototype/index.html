@@ -432,6 +432,105 @@
       color: var(--ink);
     }
 
+    /* ── Optional test explainers ── */
+    .test-explainers {
+      display: grid;
+      gap: 10px;
+    }
+
+    .test-explainer {
+      overflow: hidden;
+      border: 2px solid rgba(34, 27, 24, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 250, 241, 0.94);
+      box-shadow: 0 6px 14px rgba(50, 34, 21, 0.07);
+    }
+
+    .test-explainer summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 13px 15px;
+      background: rgba(86, 124, 120, 0.12);
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .test-explainer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .test-explainer summary::after {
+      content: "+";
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(34, 27, 24, 0.26);
+      background: rgba(255, 252, 247, 0.9);
+      color: var(--teal);
+      font-size: 1.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .test-explainer[open] summary::after {
+      content: "-";
+    }
+
+    .test-explainer__body {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .test-explainer__image {
+      overflow: hidden;
+      border: 2px solid rgba(34, 27, 24, 0.18);
+      border-radius: 8px;
+      background: #fffaf1;
+      aspect-ratio: 4 / 5;
+    }
+
+    .test-explainer__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 35%;
+    }
+
+    .test-explainer__copy {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+      line-height: 1.38;
+    }
+
+    .test-explainer__copy strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    @media (max-width: 420px) {
+      .test-explainer__body {
+        grid-template-columns: 92px 1fr;
+        gap: 12px;
+      }
+    }
+
     /* ── Tip strip ── */
     .tip {
       padding: 12px 18px;
@@ -903,6 +1002,36 @@
       <div class="comic-panel panel--comic-landscape">
         <img src="../assets/generated/page_07-02-eeg-mri-tests.png"
              alt="Dr. Rehim explains EEG and MRI tests with simple drawings on a tablet">
+      </div>
+
+      <div class="test-explainers" aria-label="More about EEG and MRI">
+        <details class="test-explainer">
+          <summary>Not familiar with EEG? Tap for a quick explanation.</summary>
+          <div class="test-explainer__body">
+            <div class="test-explainer__image">
+              <img src="../assets/generated/EEG.png"
+                   alt="Illustration of an EEG cap with small sensors on the scalp">
+            </div>
+            <div class="test-explainer__copy">
+              <p><strong>EEG</strong> stands for electroencephalogram.</p>
+              <p>Small sensors on the scalp record the brain's electrical activity. It is safe and painless, and it can help look for seizure-like patterns.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="test-explainer">
+          <summary>Not familiar with MRI? Tap for a quick explanation.</summary>
+          <div class="test-explainer__body">
+            <div class="test-explainer__image">
+              <img src="../assets/generated/MRI.png"
+                   alt="Illustration of a brain MRI scanner">
+            </div>
+            <div class="test-explainer__copy">
+              <p><strong>MRI</strong> stands for magnetic resonance imaging.</p>
+              <p>It uses a strong magnet and radio waves to make detailed pictures of the brain. These pictures can help doctors look for structural changes.</p>
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="comic-panel panel--comic-landscape">
